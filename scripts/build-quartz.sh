@@ -25,7 +25,7 @@ if [ -n "$NOTIFY_TARGET" ]; then
   apprise -vv --title="Dockerized Quartz" --body="Quartz build has been started." "$NOTIFY_TARGET"
 fi
 
-npx quartz build --directory /vault --output /usr/share/nginx/html
+npx quartz build --directory $CONTENT_DIR --output /usr/share/nginx/html
 BUILD_EXIT_CODE=$?
 
 if [ $BUILD_EXIT_CODE -eq 0 ]; then
