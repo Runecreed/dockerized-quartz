@@ -1,23 +1,24 @@
-# Dockerized Quartz
+# Slightly customized Dockerized Quartz setup
 
-[Quartz (v4)](https://github.com/jackyzha0/quartz) is a lightweight static site generator that helps you host your digital garden with minimal setup. This project provides an automated, Dockerized solution to build and serve Quartz sites effortlessly. Simply mount your Obsidian Vault as a Docker volume, and Quartz will handle the rest!
 
-This variant publishes to my GHCR registry, and expects an obsidian vault structure 
+This variant uses github actions to create a private container which has some minor adjustments to the original /scripts
+specifically - Im overriding the default quartz instance configuration via my Obsidian Vault /config/* files.
+That way I can use the latest quartz repository updates, and tweak the settings a bit, automatically within my blog vault.
 
-/config/*
-
-where configuration files for quartz live; following the /quartz repository structure. These files are transferred over to override the quartz settings in the image.
+The vault pages then live under 
 
 /content/*
 
 everything inside content is subject for publishing.
 
-any files not in these directories are for reference, will never be published. They are synced, though.
+---
 
-## Bug
 
-seems like deletion events with this setup do not trigger a rebuild ;/ inotifywait is not seeing them.
+Check out the root project that this one was forked from, all the hard work is there:
 
+# Dockerized Quartz
+
+[Quartz (v4)](https://github.com/jackyzha0/quartz) is a lightweight static site generator that helps you host your digital garden with minimal setup. This project provides an automated, Dockerized solution to build and serve Quartz sites effortlessly. Simply mount your Obsidian Vault as a Docker volume, and Quartz will handle the rest!
 
 ## Features
 
