@@ -47,7 +47,7 @@ schedule_build() {
 # Watch the directory for changes
 inotifywait -m -e modify,move,create,delete --exclude '.*\.swp$' --format '%w%f' $WATCH_DIR | \
 while read file; do
-    if [[ "$file" =~ \.md$ && "$file" != *"Untitled.md"* ]]; then
+    if [[ "$file" =~ \.md$ && "$file" != *"Untitled.md"* || "$file" == $WATCH_DIR/config/* ]]; then
         LAST_CHANGE=$(date +%s)
 
         schedule_build
