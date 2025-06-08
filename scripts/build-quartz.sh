@@ -3,6 +3,7 @@
 QUARTZ_DIR="/usr/src/app/quartz"
 VAULT_DIR="/vault"
 CONTENT_DIR="/vault/content"
+CONFIG_DIR="/vault/config"
 
 if [ "$VAULT_DO_GIT_PULL_ON_UPDATE" = true ]; then
   echo "Executing git pull in /vault directory"
@@ -12,8 +13,8 @@ fi
 
 cd $QUARTZ_DIR
 
-echo "Looking to adjust configuation files for Quartz"
-[ -f $CONFIG_DIR ] && cp -f $CONFIG_DIR $QUARTZ_DIR
+echo "Looking to update configuation files for Quartz"
+[ -d $CONFIG_DIR ] && cp -rf $CONFIG_DIR/* $QUARTZ_DIR/
 
 echo "Running Quartz build..."
 if [ -n "$NOTIFY_TARGET" ]; then
