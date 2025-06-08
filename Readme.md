@@ -14,6 +14,9 @@ everything inside content is subject for publishing.
 
 any files not in these directories are for reference, will never be published. They are synced, though.
 
+## Bug
+
+seems like deletion events with this setup do not trigger a rebuild ;/ inotifywait is not seeing them.
 
 
 ## Features

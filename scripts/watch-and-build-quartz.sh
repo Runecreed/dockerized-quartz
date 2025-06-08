@@ -30,8 +30,8 @@ schedule_build() {
     if [[ $BUILD_SCHEDULED_PID -ne 0 ]]; then
         kill $BUILD_SCHEDULED_PID 2>/dev/null
         echo "Resetting scheduled build."
+    else echo "changes detected, new build scheduled"
     fi
-
     # Start the delay in the background and capture its PID
     (
         sleep $BUILD_UPDATE_DELAY
@@ -45,11 +45,11 @@ schedule_build() {
 }
 
 # Watch the directory for changes
-inotifywait -m -e modify,move,create,delete --exclude '.*\.swp$' --format '%w%f' $WATCH_DIR | \
+inotifywait -m -e modify,move,create,delete,delete_self,unmount --exclude '.*\.swp$' --format '%e %w%f' -r $WATCH_DIR | \
 while read file; do
-    if [[ "$file" =~ \.md$ && "$file" != *"Untitled.md"* || "$file" == $WATCH_DIR/config/* ]]; then
+    echo found content page change: "$file"
+    if [[ "$file" != *"Untitled.md"* ]]; then
         LAST_CHANGE=$(date +%s)
-
         schedule_build
     fi
 done

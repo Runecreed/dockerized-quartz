@@ -13,7 +13,7 @@ fi
 
 cd $QUARTZ_DIR
 
-echo "Looking to update configuation files for Quartz"
+echo "Looking to update configuration files for Quartz"
 [ -d $CONFIG_DIR ] && cp -rf $CONFIG_DIR/* $QUARTZ_DIR/
 
 echo "Running Quartz build..."
