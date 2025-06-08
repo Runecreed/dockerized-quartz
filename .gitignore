@@ -137,3 +137,9 @@ dist
 
 # personal compose exposing volume mappings
 docker-compose.yml
+/.idea/.gitignore
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/dockerized-quartz.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
