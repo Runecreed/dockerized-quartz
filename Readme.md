@@ -16,6 +16,8 @@ everything inside content is subject for publishing.
 
 Check out the root project that this one was forked from, all the hard work is there:
 
+https://github.com/shommey/dockerized-quartz
+
 # Dockerized Quartz
 
 [Quartz (v4)](https://github.com/jackyzha0/quartz) is a lightweight static site generator that helps you host your digital garden with minimal setup. This project provides an automated, Dockerized solution to build and serve Quartz sites effortlessly. Simply mount your Obsidian Vault as a Docker volume, and Quartz will handle the rest!
