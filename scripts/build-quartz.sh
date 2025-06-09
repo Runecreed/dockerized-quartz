@@ -16,6 +16,9 @@ cd $QUARTZ_DIR
 echo "Looking to update configuration files for Quartz"
 [ -d $CONFIG_DIR ] && cp -rf $CONFIG_DIR/* $QUARTZ_DIR/
 
+echo "Looking to install quartz theme"
+/usr/src/app/scripts/action.sh tokyo-night
+
 echo "Running Quartz build..."
 if [ -n "$NOTIFY_TARGET" ]; then
   apprise -vv --title="Dockerized Quartz" --body="Quartz build has been started." "$NOTIFY_TARGET"
